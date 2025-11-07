@@ -11,7 +11,7 @@ This project contains automated test cases for the TechForing career portal usin
 - **CAPTCHA Reading**: Uses Tesseract OCR to automatically read and solve CAPTCHA challenges
 - **Page Navigation**: Handles dynamic web elements and waits for proper page loading
 
-##[Automation Video](https://drive.google.com/file/d/1q8cMrsdwHeOi8av6QgttMS-V-d8EkoM5/view?usp=sharing)
+## [Automation Video](https://drive.google.com/file/d/1q8cMrsdwHeOi8av6QgttMS-V-d8EkoM5/view?usp=sharing)
 
 ## Technologies Used
 
