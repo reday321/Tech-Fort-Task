@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-This project contains automated test cases for the TechForing career portal using Selenium WebDriver with Java. It includes automated user registration (sign-up) and login functionality with CAPTCHA reading capabilities.
+This project contains automated test cases for the TechForing career portal using Selenium WebDriver with Java. It includes automated user registration (sign-up) and login functionality with manual CAPTCHA input using `Thread.sleep()` for pausing test execution.
 
 ## Features
 
 - **Automated User Registration**: Fills out and submits the sign-up form with user details
 - **Automated Login**: Authenticates users with email and password
-- **CAPTCHA Reading**: Uses Tesseract OCR to automatically read and solve CAPTCHA challenges
+- **Manual CAPTCHA Input**: Uses `Thread.sleep()` for manual CAPTCHA entry during test execution
 - **Page Navigation**: Handles dynamic web elements and waits for proper page loading
 
 ## [Automation Video](https://drive.google.com/file/d/1q8cMrsdwHeOi8av6QgttMS-V-d8EkoM5/view?usp=sharing)
@@ -18,8 +18,7 @@ This project contains automated test cases for the TechForing career portal usin
 - **Java**: Programming language
 - **Selenium WebDriver**: Browser automation framework
 - **JUnit 5**: Testing framework for organizing and running test cases
-- **Tesseract OCR**: Optical Character Recognition library for reading CAPTCHA text
-- **Tess4J**: Java wrapper for Tesseract OCR
+- **Gradle**: Build automation tool
 - **ChromeDriver**: WebDriver implementation for Chrome browser
 
 ## Project Structure
@@ -36,42 +35,17 @@ This project contains automated test cases for the TechForing career portal usin
 Before running this project, ensure you have:
 
 1. **Java JDK 8 or higher** installed
-2. **Maven** (for dependency management)
+2. **Gradle** (for dependency management)
 3. **Chrome browser** installed
 4. **ChromeDriver** matching your Chrome version
-5. **Tesseract OCR** installed and configured
 
 ## Dependencies
 
-Add these dependencies to your `pom.xml`:
+Dependencies are managed through `build.gradle`. Key dependencies include:
 
-```xml
-<dependencies>
-    <!-- Selenium WebDriver -->
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.x.x</version>
-    </dependency>
-    
-    <!-- JUnit 5 -->
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter</artifactId>
-        <version>5.x.x</version>
-        <scope>test</scope>
-    </dependency>
-    
-    <!-- Tess4J for OCR -->
-    <dependency>
-        <groupId>net.sourceforge.tess4j</groupId>
-        <artifactId>tess4j</artifactId>
-        <version>5.x.x</version>
-    </dependency>
-</dependencies>
-```
-
-## Setup Instructions
+- Selenium WebDriver
+- JUnit 5
+- Gradle build system## Setup Instructions
 
 1. **Clone the repository**
    ```bash
@@ -79,32 +53,18 @@ Add these dependencies to your `pom.xml`:
    cd <project-directory>
    ```
 
-2. **Install Tesseract OCR**
-  - **Windows**: Download from [GitHub Tesseract releases](https://github.com/tesseract-ocr/tesseract)
-  - **macOS**: `brew install tesseract`
-  - **Linux**: `sudo apt-get install tesseract-ocr`
-
-3. **Download Tesseract language data**
-  - Create a `lib/tessdata` directory in your project
-  - Download `eng.traineddata` from [Tesseract GitHub](https://github.com/tesseract-ocr/tessdata)
-  - Place it in the `lib/tessdata` folder
-
-4. **Configure ChromeDriver**
+2. **Download ChromeDriver**
   - Download ChromeDriver from [official site](https://chromedriver.chromium.org/)
   - Add ChromeDriver to your system PATH or specify the path in code
+
+3. **Build the project**
+   ```bash
+   ./gradlew build
+   ```
 
 
 
 ## How It Works
-
-### CaptchaReader.java
-
-This class handles CAPTCHA recognition:
-- Takes a screenshot of the CAPTCHA element
-- Saves it as a PNG file
-- Uses Tesseract OCR to extract text from the image
-- Cleans the extracted text by removing whitespace and special characters
-- Returns the cleaned CAPTCHA text
 
 ### Login_SignUp.java
 
@@ -121,8 +81,8 @@ Contains two test cases:
   - Email
   - Password
   - Confirm Password
-- Reads and enters CAPTCHA automatically
-- Verifies CAPTCHA
+- Pauses execution with `Thread.sleep()` for manual CAPTCHA input
+- Waits for tester to manually enter the CAPTCHA
 - Completes sign-up process
 
 #### 2. Login Test (`@Order(2)`)
@@ -134,11 +94,7 @@ Contains two test cases:
 
 ## Important Notes
 
-⚠️ **CAPTCHA Accuracy**: OCR-based CAPTCHA reading may not be 100% accurate. The success rate depends on:
-- CAPTCHA image quality
-- Font complexity
-- Background noise
-- Tesseract configuration
+⚠️ **Manual CAPTCHA Input**: The tests use `Thread.sleep()` to pause execution and wait for manual CAPTCHA entry. Ensure you monitor the test execution and enter the CAPTCHA when prompted.
 
 ⚠️ **Test Data**: Update the test credentials in `Login_SignUp.java` before running:
 - Email addresses
@@ -146,11 +102,23 @@ Contains two test cases:
 - Phone numbers
 - Personal information
 
-⚠️ **Ethical Considerations**: This project is for educational and testing purposes only. Automated CAPTCHA solving may violate terms of service of some websites.
+⚠️ **Test Execution**: Monitor test execution closely as manual intervention is required during CAPTCHA validation.
 
 ## License
 
 This project is for educational purposes only.
+
+## Bug Report
+
+For detailed bug report information, please refer to the Google Drive document:
+
+📊 [Bug Report Spreadsheet](https://docs.google.com/spreadsheets/d/19hOZSLZQophndQ6DyEtCQpEqJsuG2VSg/edit?usp=drive_link&ouid=115215919620166132160&rtpof=true&sd=true)
+
+## Test Cases
+
+For comprehensive test cases, please refer to the Google Drive document:
+
+📋 [Test Case Spreadsheet](https://docs.google.com/spreadsheets/d/1EjxHCxoR_dQsJRXSvwKm9Ca5rRWzYQ0z/edit?usp=drive_link&ouid=115215919620166132160&rtpof=true&sd=true)
 
 ## Contact
 
