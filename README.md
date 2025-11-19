@@ -21,48 +21,6 @@ This project contains automated test cases for the TechForing career portal usin
 - **Gradle**: Build automation tool
 - **ChromeDriver**: WebDriver implementation for Chrome browser
 
-## Project Structure
-
-```
-├── CaptchaReader.java       # Handles CAPTCHA image extraction and OCR processing
-├── Login_SignUp.java        # Contains test cases for sign-up and login
-└── lib/
-    └── tessdata/            # Tesseract language data files
-```
-
-## Prerequisites
-
-Before running this project, ensure you have:
-
-1. **Java JDK 8 or higher** installed
-2. **Gradle** (for dependency management)
-3. **Chrome browser** installed
-4. **ChromeDriver** matching your Chrome version
-
-## Dependencies
-
-Dependencies are managed through `build.gradle`. Key dependencies include:
-
-- Selenium WebDriver
-- JUnit 5
-- Gradle build system## Setup Instructions
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd <project-directory>
-   ```
-
-2. **Download ChromeDriver**
-  - Download ChromeDriver from [official site](https://chromedriver.chromium.org/)
-  - Add ChromeDriver to your system PATH or specify the path in code
-
-3. **Build the project**
-   ```bash
-   ./gradlew build
-   ```
-
-
 
 ## How It Works
 
@@ -104,9 +62,7 @@ Contains two test cases:
 
 ⚠️ **Test Execution**: Monitor test execution closely as manual intervention is required during CAPTCHA validation.
 
-## License
 
-This project is for educational purposes only.
 
 ## Bug Report
 
